@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bek6eb0k6skmm"]
+
+[ext_resource type="ArrayMesh" uid="uid://3h17ujosoyde" path="res://panda.obj" id="1_wwusy"]
+[ext_resource type="Script" path="res://MOVE.gd" id="2_hjo0m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6acdb"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.12549, 0.12549, 0.12549, 0.937255)
+roughness = 0.05
+
+[sub_resource type="Environment" id="Environment_sm76w"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Panda" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0826648, 1.23526, -0.0752959)
+mesh = ExtResource("1_wwusy")
+surface_material_override/0 = SubResource("StandardMaterial3D_6acdb")
+script = ExtResource("2_hjo0m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.840349, -0.542046, 0, 0.542046, 0.840349, 15.1737, 179.152, -111.389)
+light_energy = 2.801
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.928513, -0.205846, -0.309017, -0.35381, 0.238081, 0.904509, -0.112618, 0.949181, -0.293892, 0, 68.3508, 0)
+rotation_order = 0
+environment = SubResource("Environment_sm76w")
+projection = 2
+current = true
+size = 2.0
+near = 1.728
+far = 90.12
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.965943, 42.9219, -2.01022)
+light_energy = 8.556
+light_indirect_energy = 5.444
+light_volumetric_fog_energy = 0.0
+spot_angle = 89.99
